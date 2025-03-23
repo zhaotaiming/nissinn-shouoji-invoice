@@ -300,8 +300,8 @@ button:hover, input[type="button"]:hover {
 }
 
 
-/* ===== 移动端优化（仅在屏幕宽度小于768px时应用） ===== */
-@media (max-width: 768px) {
+/* ===== 移动端优化（仅在屏幕宽度小于600px时应用） ===== */
+@media (max-width: 600px) {
     /* 表单容器宽度自适应 */
     #infoForm {
         width: 90%;
@@ -362,4 +362,3 @@ button:hover, input[type="button"]:hover {
         margin: 10px 0;
     }
 }
-
