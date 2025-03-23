@@ -306,6 +306,26 @@ button:hover, input[type="button"]:hover {
     #infoForm {
         width: 90%;
     }
+
+     /* ===== 输入框样式 ===== */
+    input[type="text"],
+    input[type="date"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 1em;
+    }
+
+    /* ===== 输入行样式 ===== */
+    .inputRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
     
     /* 信息标签全宽显示 */
     .information {
@@ -315,11 +335,11 @@ button:hover, input[type="button"]:hover {
     }
     
     /* 输入行改为纵向排列 */
-    .inputRow {
+/*     .inputRow {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-    }
+    } */
     
     .inputRow .label-content,
     .inputRow .input-content,
