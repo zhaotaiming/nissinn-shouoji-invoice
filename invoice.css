@@ -391,6 +391,7 @@ button:hover, input[type="button"]:hover {
         grid-column: 2;
         grid-row: 2;
         justify-self: start;
+        width: 10px;
     }
 
     .inputRow > .label-price {
