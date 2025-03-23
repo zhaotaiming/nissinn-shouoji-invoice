@@ -204,17 +204,26 @@ body {
     width: 200px;
 }
 
-/* 输入框样式（桌面端保持原样） */
+/* ===== 输入框样式（桌面端 + 移动端都生效） ===== */
 input[type="text"],
 input[type="date"],
 textarea {
     width: 100%;
-    padding: 8px;
     box-sizing: border-box;
     margin-bottom: 1em;
 }
 
-/* 输入行（桌面端保持原样） */
+/* 统一输入框高度，让所有字段一样高 */
+.inputRow input[type="text"],
+.inputRow input[type="date"] {
+    height: 32px;         /* 固定高度 */
+    line-height: 32px;    /* 行高与高度一致，文字垂直居中 */
+    padding: 0 8px;       /* 水平内边距 */
+    margin: 0;            /* 去除默认外边距 */
+    box-sizing: border-box;
+}
+
+/* ===== 输入行（桌面端保持原样） ===== */
 .inputRow {
     display: flex;
     align-items: center;
@@ -308,15 +317,14 @@ button:hover, input[type="button"]:hover {
     border-color: cornflowerblue;
 }
 
-
 /* ======== 移动端（小于600px）覆盖样式 ======== */
 @media (max-width: 600px) {
-    /* 1) 表单容器全屏宽度 */
+    /* 表单容器全屏宽度 */
     #infoForm {
         width: 90% !important;
     }
 
-    /* 2) 导航栏调整 */
+    /* 导航栏调整 */
     .nav {
         height: auto;
         position: static;
@@ -332,19 +340,19 @@ button:hover, input[type="button"]:hover {
         margin-top: 10px;
     }
 
-    /* 3) 表格字体缩小 */
+    /* 表格字体缩小 */
     table, th, td {
         font-size: 12px;
     }
 
-    /* 4) 按钮宽度全屏 */
+    /* 按钮宽度全屏 */
     button, input[type="button"] {
         width: 100%;
         max-width: none;
         margin: 10px 0;
     }
 
-    /* 5) 覆盖 .inputRow 宽度 + 采用网格布局 */
+    /* 覆盖 .inputRow 宽度 + 采用网格布局 */
     .inputRow {
         display: grid !important;
         grid-template-columns: 1fr 1fr; /* 两列 */
