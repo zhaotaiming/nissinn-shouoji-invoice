@@ -187,8 +187,7 @@ body {
 
 /* ===== 表单容器 ===== */
 #infoForm {
-    width: 90%;
-    max-width: 700px;
+    width: 700px;
     margin: auto;
     background-color: #ffffff;
     padding: 20px;
@@ -196,6 +195,13 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     margin-bottom: 30px;
     box-sizing: border-box;
+}
+
+/* 当屏幕较小时自适应 */
+@media (max-width: 768px) {
+    #infoForm {
+        width: 90%;
+    }
 }
 
 /* ===== 信息标签 ===== */
