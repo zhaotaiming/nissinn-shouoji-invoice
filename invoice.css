@@ -144,7 +144,9 @@ button:hover, input[type="button"]:hover {
 }
  */
 
-/* ===== 基础设置 ===== */
+/* ===== 原始样式（桌面端） ===== */
+
+/* 整体页面设置 */
 body {
     font-family: 'Noto Sans SC', sans-serif;
     background-color: #f5f7fa;
@@ -153,39 +155,40 @@ body {
     color: #333;
     line-height: 1.6;
     width: 100%;
-    box-sizing: border-box;
 }
 
-/* ===== 顶部导航栏 ===== */
+/* 导航栏 */
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 1em;
+    position: relative;
+    height: 100px;
+    width: 100%;
     max-width: 740px;
     margin: auto;
     box-sizing: border-box;
 }
 
 .logo {
-    font-size: 1rem;
-    padding: 0.5em;
-    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px;
+    font-size: 16px;
     color: #333;
+    z-index: 1;
+    margin-top: 33px;
 }
 
 .title {
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 0.5em;
-    transform: none;
-    position: static;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
     font-family: "Noto Sans SC", sans-serif;
     white-space: nowrap;
+    z-index: 0;
 }
 
-/* ===== 表单容器 ===== */
+/* 表单容器 */
 #infoForm {
     width: 700px;
     margin: auto;
@@ -194,40 +197,20 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     margin-bottom: 30px;
-    box-sizing: border-box;
 }
 
-/* 小屏幕时让表单容器自适应 */
-@media (max-width: 768px) {
-    #infoForm {
-        width: 90%;
-    }
-}
-
-/* ===== 信息标签 ===== */
+/* 信息标签 */
 .information {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    display: inline-block;
+    width: 200px;
 }
 
-/* ===== 输入框样式 ===== */
-input[type="text"],
-input[type="date"],
-textarea {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-bottom: 1em;
-}
-
-/* ===== 输入行样式：默认电脑端横向排列 ===== */
+/* 输入行样式（保持原有横向排列） */
 .inputRow {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    width: 100%;
-    box-sizing: border-box;
+    width: 1000px;
 }
 
 .inputRow .label-content {
@@ -262,53 +245,7 @@ textarea {
     border-color: #007BFF;
 }
 
-/* ===== 📱 移动端：改为纵向排列 ===== */
-@media (max-width: 600px) {
-    .inputRow {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .inputRow .label-content,
-    .inputRow .input-content,
-    .inputRow .label-quantity,
-    .inputRow .input-quantity,
-    .inputRow .label-price,
-    .inputRow .input-price {
-        width: 100% !important;
-        margin-right: 0;
-    }
-}
-
-/* ===== 按钮样式 ===== */
-button,
-input[type="button"] {
-    background-color: #007BFF;
-    border: none;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-    margin: 10px auto;
-    display: block;
-    width: 100%;
-    max-width: 300px;
-}
-
-button:hover,
-input[type="button"]:hover {
-    background-color: #0056b3;
-}
-
-.more {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-color: cornflowerblue;
-}
-
-/* ===== PDF区域样式（如果有预览）===== */
+/* PDF内容区域样式 */
 #pdfContent {
     background-color: #fff;
     padding: 20px;
@@ -316,7 +253,7 @@ input[type="button"]:hover {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* ===== 表格样式 ===== */
+/* 表格样式 */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -337,23 +274,92 @@ th {
     font-weight: bold;
 }
 
-/* ===== 导航栏移动端优化 ===== */
-@media (max-width: 600px) {
-    .nav {
-        flex-direction: column;
-        text-align: center;
-    }
+/* 按钮样式 */
+button, input[type="button"] {
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
 
-    .title {
-        font-size: 1.5rem;
-    }
+button:hover, input[type="button"]:hover {
+    background-color: #0056b3;
+}
 
-    table, th, td {
-        font-size: 12px;
-    }
+.more {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: cornflowerblue;
+}
 
+
+/* ===== 移动端优化（仅在屏幕宽度小于768px时应用） ===== */
+@media (max-width: 768px) {
+    /* 表单容器宽度自适应 */
+    #infoForm {
+        width: 90%;
+    }
+    
+    /* 信息标签全宽显示 */
     .information {
+        display: block;
         width: 100%;
         margin-bottom: 5px;
     }
+    
+    /* 输入行改为纵向排列 */
+    .inputRow {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .inputRow .label-content,
+    .inputRow .input-content,
+    .inputRow .label-quantity,
+    .inputRow .input-quantity,
+    .inputRow .label-price,
+    .inputRow .input-price {
+        width: 100% !important;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* 导航栏调整 */
+    .nav {
+        height: auto;
+        position: static;
+        text-align: center;
+    }
+    
+    .logo {
+        margin-top: 10px;
+    }
+    
+    .title {
+        position: static;
+        transform: none;
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+    
+    /* 表格字体缩小 */
+    table, th, td {
+        font-size: 12px;
+    }
+    
+    /* 按钮宽度全屏 */
+    button, input[type="button"] {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+    }
 }
+
