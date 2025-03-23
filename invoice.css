@@ -143,7 +143,7 @@ button:hover, input[type="button"]:hover {
     border-color: cornflowerblue;
 }
  */
-/* ===== 桌面端原始样式 ===== */
+/* ======== 桌面端原样式 ======== */
 
 /* 整体页面设置 */
 body {
@@ -204,7 +204,7 @@ body {
     width: 200px;
 }
 
-/* ===== 输入框样式 ===== */
+/* 输入框样式（桌面端保持原样） */
 input[type="text"],
 input[type="date"],
 textarea {
@@ -214,12 +214,12 @@ textarea {
     margin-bottom: 1em;
 }
 
-/* ===== 输入行样式（桌面端保持横向排列） ===== */
+/* 输入行（桌面端保持原样） */
 .inputRow {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    width: 1000px;
+    width: 1000px; /* 桌面端固定宽度 */
 }
 
 .inputRow .label-content {
@@ -309,70 +309,66 @@ button:hover, input[type="button"]:hover {
 }
 
 
-/* ===== 移动端优化（屏幕宽度小于600px） ===== */
+/* ======== 移动端（小于600px）覆盖样式 ======== */
 @media (max-width: 600px) {
-    /* 表单容器宽度自适应 */
+    /* 1) 表单容器全屏宽度 */
     #infoForm {
-        width: 90%;
+        width: 90% !important;
     }
-    
-    /* 信息标签全宽显示 */
-    .information {
-        display: block;
-        width: 100%;
-        margin-bottom: 5px;
-    }
-    
-    /* 导航栏调整 */
+
+    /* 2) 导航栏调整 */
     .nav {
         height: auto;
         position: static;
         text-align: center;
     }
-    
     .logo {
         margin-top: 10px;
     }
-    
     .title {
         position: static;
         transform: none;
         font-size: 1.5rem;
         margin-top: 10px;
     }
-    
-    /* 表格字体缩小 */
+
+    /* 3) 表格字体缩小 */
     table, th, td {
         font-size: 12px;
     }
-    
-    /* 按钮宽度全屏 */
+
+    /* 4) 按钮宽度全屏 */
     button, input[type="button"] {
         width: 100%;
         max-width: none;
         margin: 10px 0;
     }
-    
-    /* ===== 修改输入行样式：利用CSS Grid ===== */
+
+    /* 5) 覆盖 .inputRow 宽度 + 采用网格布局 */
     .inputRow {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr; /* 两列 */
         gap: 10px;
+        width: 100% !important;  /* 强制覆盖1000px */
+        margin-bottom: 15px;
+        box-sizing: border-box;
     }
-    /* 第一行：内容品（label-content 与 input-content）占据整行 */
+
+    /* 让“内容品”独占一行（label-content + input-content） */
     .inputRow > .label-content,
     .inputRow > .input-content {
-        grid-column: 1 / -1;
+        grid-column: 1 / -1; /* 占满两列 */
     }
-    /* 第二行：数量组 分配到第一列 */
+
+    /* 让“数量”在左列 */
     .inputRow > .label-quantity,
     .inputRow > .input-quantity {
-        grid-column: 1;
+        grid-column: 1; 
     }
-    /* 第二行：单价组 分配到第二列 */
+
+    /* 让“单价”在右列 */
     .inputRow > .label-price,
     .inputRow > .input-price {
         grid-column: 2;
     }
 }
-
