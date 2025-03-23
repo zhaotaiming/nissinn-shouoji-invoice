@@ -197,7 +197,7 @@ body {
     box-sizing: border-box;
 }
 
-/* 当屏幕较小时自适应 */
+/* 小屏幕时让表单容器自适应 */
 @media (max-width: 768px) {
     #infoForm {
         width: 90%;
@@ -221,40 +221,62 @@ textarea {
     margin-bottom: 1em;
 }
 
-/* ===== 输入行样式 ===== */
+/* ===== 输入行样式：默认电脑端横向排列 ===== */
 .inputRow {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
     margin-bottom: 15px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.inputRow > div {
-    flex: 1 1 100%;
+.inputRow .label-content {
+    display: inline-block;
+    width: 70px;
 }
 
-.inputRow .label-content,
-.inputRow .input-content,
+.inputRow .input-content {
+    display: inline-block;
+    width: 210px;
+    margin-right: 40px;
+}
+
 .inputRow .label-quantity,
-.inputRow .input-quantity,
-.inputRow .label-price,
+.inputRow .label-price {
+    display: inline-block;
+    width: 50px;
+}
+
+.inputRow .input-quantity {
+    display: inline-block;
+    width: 100px;
+    margin-right: 40px;
+}
+
 .inputRow .input-price {
     display: inline-block;
-    width: 100%;
+    width: 100px;
 }
 
-/* 在较大屏幕下自动横向排列 */
-@media (min-width: 600px) {
+.inputRow input:focus {
+    border-color: #007BFF;
+}
+
+/* ===== 📱 移动端：改为纵向排列 ===== */
+@media (max-width: 600px) {
+    .inputRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .inputRow .label-content,
     .inputRow .input-content,
     .inputRow .label-quantity,
     .inputRow .input-quantity,
     .inputRow .label-price,
     .inputRow .input-price {
-        width: auto;
-        flex: 1 1 auto;
+        width: 100% !important;
+        margin-right: 0;
     }
 }
 
@@ -315,8 +337,13 @@ th {
     font-weight: bold;
 }
 
-/* ===== 响应式优化：小屏幕 ===== */
+/* ===== 导航栏移动端优化 ===== */
 @media (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
     .title {
         font-size: 1.5rem;
     }
@@ -328,10 +355,5 @@ th {
     .information {
         width: 100%;
         margin-bottom: 5px;
-    }
-
-    .nav {
-        flex-direction: column;
-        text-align: center;
     }
 }
