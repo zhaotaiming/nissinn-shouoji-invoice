@@ -1,5 +1,4 @@
-/* 整体页面设置 */
-body {
+/* body {
     font-family: 'Noto Sans SC', sans-serif;
     background-color: #f5f7fa;
     margin: 0;
@@ -54,19 +53,12 @@ body {
     width: 200px;
 }
 
-/* 输入行样式 */
 .inputRow {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     width: 1000px;
 }
-
-/* .inputRow label {
-    flex: 0 0 60px;
-    font-weight: bold;
-    margin-right: 10px;
-} */
 
 .inputRow .label-content {
     display: inline-block;
@@ -100,7 +92,6 @@ body {
     border-color: #007BFF;
 }
 
-/* PDF内容区域样式 */
 #pdfContent {
     background-color: #fff;
     padding: 20px;
@@ -108,7 +99,6 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* 表格样式 */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -129,7 +119,6 @@ th {
     font-weight: bold;
 }
 
-/* 按钮样式 */
 button, input[type="button"] {
     background-color: #007BFF;
     border: none;
@@ -146,11 +135,197 @@ button:hover, input[type="button"]:hover {
     background-color: #0056b3;
 }
 
-
 .more {
     display: block;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     border-color: cornflowerblue;
+}
+ */
+
+/* ===== 基础设置 ===== */
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===== 顶部导航栏 ===== */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1em;
+    max-width: 740px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 1rem;
+    padding: 0.5em;
+    text-decoration: none;
+    color: #333;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0.5em;
+    transform: none;
+    position: static;
+    font-family: "Noto Sans SC", sans-serif;
+    white-space: nowrap;
+}
+
+/* ===== 表单容器 ===== */
+#infoForm {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+/* ===== 信息标签 ===== */
+.information {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* ===== 输入框样式 ===== */
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+
+/* ===== 输入行样式 ===== */
+.inputRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputRow > div {
+    flex: 1 1 100%;
+}
+
+.inputRow .label-content,
+.inputRow .input-content,
+.inputRow .label-quantity,
+.inputRow .input-quantity,
+.inputRow .label-price,
+.inputRow .input-price {
+    display: inline-block;
+    width: 100%;
+}
+
+/* 在较大屏幕下自动横向排列 */
+@media (min-width: 600px) {
+    .inputRow .label-content,
+    .inputRow .input-content,
+    .inputRow .label-quantity,
+    .inputRow .input-quantity,
+    .inputRow .label-price,
+    .inputRow .input-price {
+        width: auto;
+        flex: 1 1 auto;
+    }
+}
+
+/* ===== 按钮样式 ===== */
+button,
+input[type="button"] {
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin: 10px auto;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover,
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.more {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: cornflowerblue;
+}
+
+/* ===== PDF区域样式（如果有预览）===== */
+#pdfContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== 表格样式 ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* ===== 响应式优化：小屏幕 ===== */
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    table, th, td {
+        font-size: 12px;
+    }
+
+    .information {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
 }
