@@ -391,7 +391,7 @@ button:hover, input[type="button"]:hover {
         grid-column: 2;
         grid-row: 2;
         justify-self: start;
-        width: 10px;
+        width: 30px;
     }
 
     .inputRow > .label-price {
@@ -404,5 +404,6 @@ button:hover, input[type="button"]:hover {
         grid-column: 4;
         grid-row: 2;
         justify-self: start;
+        width: 30px;
     }
 }
