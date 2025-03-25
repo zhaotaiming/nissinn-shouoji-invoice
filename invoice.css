@@ -255,11 +255,11 @@ button:hover, input[type="button"]:hover {
 
     .inputRow .quantity .label-quantity,
     .inputRow .price .label-price {
-        width: 22%;
+        width: 30%;
     }
     .inputRow .quantity .input-quantity,
     .inputRow .price .input-price {
-        width: 66.6%;
+        width: 30%;
     }
 
 
