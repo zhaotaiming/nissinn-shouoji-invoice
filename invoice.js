@@ -1,17 +1,17 @@
-const correctPassword = "weiwei";
-let input;
+// const correctPassword = "weiwei";
+// let input;
 
-while (true) {
-  input = prompt("请输入密码：");
-  if (input === null) {
-    document.write("访问已取消。");
-    break;
-  } else if (input === correctPassword) {
-    break;
-  } else {
-    alert("密码错误，请重新输入！");
-  }
-}
+// while (true) {
+//   input = prompt("请输入密码：");
+//   if (input === null) {
+//     document.write("访问已取消。");
+//     break;
+//   } else if (input === correctPassword) {
+//     break;
+//   } else {
+//     alert("密码错误，请重新输入！");
+//   }
+// }
 
 let currentRowCount = 0;
 
