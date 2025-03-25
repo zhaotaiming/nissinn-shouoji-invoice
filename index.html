@@ -20,7 +20,6 @@
         <a class="logo" href="https://nissin-shouji.vercel.app/">返回主页</a>
         <div class="title">請求書生成</div>
     </div>
-
     
     <!-- 添加用于输入名字、日期、邮编、三个地址和联系电话的框 -->
     <div id="infoForm">
@@ -53,7 +52,8 @@
         
         <label for="note">備考欄:</label>
         <textarea id="note" name="note" rows="4" cols="50"></textarea><br><br>
-        <button type="button" onclick="generatePDF()">PDFを生成</button>
+        <button type="button" onclick="generatePDF1()">PDFを生成</button>
+        <button type="button" onclick="generatePDF2()">PDFを生成(登録番号なし)</button>
         <button type="button" onclick="exportToExcel()">导出 Excel</button>
     </div>
 
