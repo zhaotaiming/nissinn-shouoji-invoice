@@ -98,8 +98,8 @@ function generatePDF1() {
       rawRows.push([name, price ? price : "", quantity ? quantity : "", amount ? amount : ""]);
     }
     
-    const subtotal = (totalAmount / 1.1);
-    const tax = (totalAmount - subtotal);
+    const subtotal = Math.round(totalAmount / 1.1);
+    const tax = Math.round(totalAmount - subtotal);
     const summaryRows = [
       ["小計", subtotal],
       ["消費税", tax],
@@ -218,8 +218,8 @@ function generatePDF2() {
       rawRows.push([name, price ? price : "", quantity ? quantity : "", amount ? amount : ""]);
     }
     
-    const subtotal = (totalAmount / 1.1);
-    const tax = (totalAmount - subtotal);
+    const subtotal = Math.round(totalAmount / 1.1);
+    const tax = Math.round(totalAmount - subtotal);
     const summaryRows = [
       ["小計", subtotal],
       ["消費税", tax],
